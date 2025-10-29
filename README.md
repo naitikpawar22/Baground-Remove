@@ -1,16 +1,17 @@
-# 🖼️ Background Remover AI
+# 🖼️ Background Remover (AI Powered)
 
-🚀 A simple yet powerful web app that **automatically removes the background** from any uploaded image using AI — and shows a **side-by-side comparison** of the original image and the background-removed version.
+🚀 A lightweight and fast **web-based background remover** built with **HTML, CSS, and JavaScript**, integrated with the **remove.bg API** to automatically remove image backgrounds.  
+The app displays both the **original** and **background-removed** images side-by-side.
 
 ---
 
 ## ⚙️ Features
 
-✅ Upload any image (PNG, JPG, JPEG, etc.)  
-✅ AI-powered **background removal**  
-✅ Preview **Before / After** images  
-✅ Download the result easily  
-✅ Clean & responsive UI  
+✅ Upload any image (JPG, PNG, JPEG)  
+✅ AI-based background removal using **remove.bg API**  
+✅ Instant **Before / After** comparison  
+✅ Option to **download** the background-removed image  
+✅ 100% Frontend — No backend setup required  
 
 ---
 
@@ -18,35 +19,30 @@
 
 | Technology | Purpose |
 |-------------|----------|
-| **HTML, CSS, JavaScript** | Frontend Design |
-| **Node.js / Express (optional)** | Backend for processing |
-| **Python (optional)** | Background removal logic (if using API like `rembg`) |
-| **File Handling / Upload System** | To handle images from user |
-
----
-
-## 📸 Preview
-
-| Original Image | Background Removed |
-|----------------|-------------------|
-| ![Original](./samples/original.png) | ![Removed](./samples/removed.png) |
-
-*(You can replace these sample images with your actual results.)*
+| **HTML5** | Structure & Layout |
+| **CSS3** | Styling & Responsiveness |
+| **JavaScript (Vanilla JS)** | Logic, API Integration, and UI Handling |
+| **Remove.bg API** | Background Removal Engine |
 
 ---
 
 ## 🧠 How It Works
 
-1. User uploads an image through the web interface.  
-2. The system processes the image using an **AI background remover** (e.g., [`rembg`](https://github.com/danielgatis/rembg) or API).  
-3. The processed image is displayed next to the original one.  
-4. Users can **download** the new image with the background removed.
+1. User uploads an image.  
+2. JavaScript sends it to the **remove.bg API** using `fetch()` with your **API key**.  
+3. The API returns a new image with the background removed.  
+4. The app shows both:
+   - The **original image**
+   - The **background-removed image**  
+5. User can **download** the processed image.
 
 ---
 
-## 🧰 Installation & Setup
+## ⚙️ API Setup (remove.bg)
 
-### Clone the repository
-```bash
-git clone https://github.com/yourusername/bg-remove.git
-cd bg-remove
+1. Go to 👉 [https://www.remove.bg/api](https://www.remove.bg/api)  
+2. Sign up and get your **free API key**.  
+3. Replace `YOUR_API_KEY_HERE` in `script.js` with your key:
+
+```js
+const apiKey = "YOUR_API_KEY_HERE";
