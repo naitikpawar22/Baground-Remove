@@ -1,0 +1,251 @@
+/* Universal Reset and Box Sizing */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  /* Changed to white for better contrast on a dark button */
+  color: white; 
+}
+
+/* Body Styling - Setting the overall theme */
+body {
+  /* Darker, professional background */
+  background-color: #1a1a2e; 
+  /* Adding a light, subtle background pattern for depth */
+  background-image: radial-gradient(#2c2c47 1px, transparent 1px);
+  background-size: 20px 20px;
+  
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Removed overflow: hidden to allow for potential scrolling on small devices, though it was there before */
+  overflow-y: auto;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 450px; /* Slightly wider container */
+  padding: 20px;
+  /* Centers the content within its container */
+  text-align: center; 
+}
+
+.container h1 {
+  /* Light text for contrast */
+  color: #e0e0e0; 
+  font-size: 30px; /* Slightly larger heading */
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- */
+
+/* CARD - The main visual element */
+.container .card {
+  max-width: 100%; /* Use the full width of the container */
+  margin: auto;
+  margin-top: 30px;
+  
+  /* Solid, slightly transparent dark background for a sleek look */
+  background-color: rgba(30, 30, 50, 0.9); 
+  
+  /* Removed border for a cleaner look, replaced with a prominent shadow */
+  border: none; 
+  
+  /* Soft, prominent, modern box shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  
+  padding: 40px 30px; /* More vertical padding */
+  border-radius: 15px; /* Softer rounded corners */
+  height: 400px; /* Taller card for more space */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  /* Smooth transition for hover effects */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.container .card:hover {
+    /* Subtle lift and glow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 15px #6e77e2;
+}
+
+/* BUTTON */
+.container .card button {
+  border: none;
+  outline: none;
+  position: relative;
+  
+  /* Vibrant primary color for the button */
+  background-color: #6e77e2; 
+  
+  padding: 15px 70px; /* Larger button for better UX */
+  border-radius: 8px; /* Slightly larger radius */
+  font-size: 16px; /* Larger font */
+  color: white;
+  font-weight: 600;
+  
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s; /* Smooth transitions */
+  
+  /* The "3D" effect shadow */
+  box-shadow: 0px 7px 0px 0px #4d539e; 
+  cursor: pointer;
+  
+  /* Ensure text inside the button is styled */
+  line-height: 1; 
+}
+
+/* Button Active (Press) State - Enhanced "Press" feeling */
+.container .card button:active {
+  box-shadow: 0px 0px 0px 0px #4d539e; /* Shadow disappears */
+  transform: translateY(7px); /* Moves down the exact shadow amount */
+  background-color: #5b62b0; /* Slightly darker on press */
+}
+
+/* Input (File) - Must remain invisible and cover the button */
+.container .card button input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Card Paragraph Text */
+.container .card p {
+  color: #a0a0a0; /* Lighter, subtle text */
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 25px; /* Increased margin */
+}
+
+/* --- */
+
+/* IMAGE CONTAINER */
+.container .image-cont {
+  border-radius: 10px;
+  /* Light border to frame the image */
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  /* Removed padding for better use of space */
+  padding: 0; 
+  max-height: 80%; /* Give space for the button below */
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Ensures the image content fits nicely */
+  overflow: hidden; 
+}
+
+/* Image inside Display Card */
+.container #displayCard #display-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+/* Start Button - Specific styling */
+#startBtn {
+  font-size: 16px; /* Consistency with the Upload button */
+  /* Using a slightly different color to distinguish from Upload */
+  background-color: #38b48b; 
+  box-shadow: 0px 7px 0px 0px #2a8b6c;
+}
+#startBtn:active {
+    box-shadow: 0px 0px 0px 0px #2a8b6c;
+    background-color: #309473;
+}
+
+
+/* Download Card Image Container */
+.container #downloadCard .image-cont {
+  padding: 0;
+  width: 80%; /* Fixed width for better preview */
+  height: 250px; /* Fixed height for a balanced view */
+  margin-bottom: 20px;
+  
+  /* Checkboard pattern background for transparent images */
+  background-image: url("https://i.imgur.com/G4c5i9C.png"); /* Using a simple, accessible checkerboard image */
+  background-size: 20px 20px;
+  border: 1px solid #444;
+}
+
+/* Download Card Image (After/Result) */
+.container #downloadCard .image-after {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0; /* Remove border-radius on the final image */
+  z-index: 1;
+}
+
+/* Download Card Image (Before/Preview) */
+.container #downloadCard .image-before {
+  /* Smaller, subtler preview */
+  max-width: 15%; 
+  max-height: 15%; 
+  
+  /* Using 'object-fit: cover' to ensure it fills the space */
+  object-fit: cover;
+  
+  border-radius: 5px;
+  
+  /* Added a distinct white border for separation */
+  border: 2px solid white; 
+  
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  
+  /* Subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+  
+  /* Smooth transition for any potential JS interaction */
+  transition: all 0.3s ease; 
+}
+
+/* Download Button specific styling (from inline HTML) */
+.container #downloadCard > div button {
+    /* Overrides the inline style to use the main button style */
+    padding: 15px 60px; 
+    background-color: #e277a0; /* A different, pleasing color for Download */
+    box-shadow: 0px 7px 0px 0px #a45876;
+    margin-top: 10px; /* Add margin to separate from the image cont */
+}
+
+.container #downloadCard > div button:active {
+    box-shadow: 0px 0px 0px 0px #a45876;
+    background-color: #c4688e;
+}
+
+
+/* Add this to your style.css for Drag and Drop visual feedback */
+.container .card.drag-active {
+    /* Use a clear border and shadow to show the drop zone is active */
+    border: 3px dashed #6e77e2; 
+    box-shadow: 0 0 15px #6e77e2;
+    transform: scale(1.02); /* Subtle enlargement */
+}
+

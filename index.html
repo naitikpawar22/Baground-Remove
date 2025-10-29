@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Background Remover</title>
+    <link rel="icon" type="image/png" href="fav.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body oncontextmenu="return false;"> 
+    <div>
+        <div class="container">
+            <h1>Image Background Remover</h1>
+
+            <div class="card" id="addCard">
+                <button>
+                    <input type="file" name="" id="fileInput" />
+                    Upload Image
+                </button>
+                <p>Choose an Image to Remove Background or Drag and Drop Here</p>
+            </div>
+
+            <div class="card" id="displayCard">
+                <div class="image-cont">
+                    <img id="display-img" src="" alt="" />
+                </div>
+                <button id="startBtn">Remove Background</button>
+            </div>
+
+            <div class="card" id="downloadCard">
+                <div class="image-cont">
+                    <img class="image-before" src="" alt="" />
+                    <img class="image-after" src="" alt="" />
+                </div>
+                <div style="display: flex; gap: 10px">
+                    <button style="padding: 10px 40px">
+                        <a id="downloadHref" download="transparentImage"> Download </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addCard = document.getElementById('addCard');
+            const fileInput = document.getElementById('fileInput');
+
+            // Prevent default drag behaviors on the card area
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                addCard.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }, false);
+            });
+
+            // Highlight the drop area when a file is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                addCard.addEventListener(eventName, () => {
+                    addCard.classList.add('drag-active'); 
+                }, false);
+            });
+
+            // Remove highlight when drag leaves or file is dropped
+            ['dragleave', 'drop'].forEach(eventName => {
+                addCard.addEventListener(eventName, () => {
+                    addCard.classList.remove('drag-active'); 
+                }, false);
+            });
+
+            // Handle dropped files
+            addCard.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+
+                if (files.length) {
+                    // Only process image files
+                    if (files[0].type.startsWith('image/')) {
+                        // Create a temporary DataTransfer object to assign the file to the input
+                        const dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(files[0]);
+                        fileInput.files = dataTransfer.files;
+
+                        // Manually trigger the 'input' event, which is handled in script.js
+                        const event = new Event('input', { bubbles: true });
+                        fileInput.dispatchEvent(event);
+                    } else {
+                        alert('Please drop an image file.');
+                    }
+                }
+            }, false);
+        });
+    </script>
+    <script src="security.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
