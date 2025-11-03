@@ -2,7 +2,7 @@
 
 🚀 A simple and beautiful **web app** built with **HTML, CSS, and JavaScript** that removes image backgrounds using the **remove.bg API**.  
 The app shows both the **original image** (without background removed) and the **processed image** (with background removed) side by side.
-
+Live Link:- [live Demo](https://bagroundremove.netlify.app/)
 ---
 
 ## ⚙️ Features
